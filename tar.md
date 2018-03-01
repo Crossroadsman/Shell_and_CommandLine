@@ -41,7 +41,7 @@ tar -cavf <archive_name.tar.gz> <folder_to_archive>
 ```
 or to create a bzip-compressed file:
 ```
-tar -jcvf <archive_name.tar.bz2> <folder_to_archive>
+tar -cavf <archive_name.tar.bz2> <folder_to_archive>
 ```
 
 where:
