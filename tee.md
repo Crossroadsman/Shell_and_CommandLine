@@ -42,4 +42,4 @@ sudo ls -la /root/ | sudo tee /root/output.txt > /dev/null
 
 
 
-<a name="#footnote01">1</a>: Based on the example from Stack Overflow: <https://stackoverflow.com/questions/82256/how-do-i-use-sudo-to-redirect-output-to-a-location-i-dont-have-permission-to-wr>
+<a name="footnote01">1</a>: Based on the example from Stack Overflow: <https://stackoverflow.com/questions/82256/how-do-i-use-sudo-to-redirect-output-to-a-location-i-dont-have-permission-to-wr>
