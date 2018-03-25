@@ -26,4 +26,4 @@ sed 's/hello/world/' input.txt > output.txt
 
 Reads the contents of `input.txt` and replaces instances of 'hello' with 'world' then writes the revised text to `output.txt`.
 
-
+Note that the output is stdout, which in the above example is being redirected to a file called output.txt.
