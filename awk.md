@@ -23,8 +23,8 @@ error-> awk: syntax error near line 1
 error-> awk: bailing out near line 1
 ```
 
-Usage
------
+Language Syntax
+---------------
 
 An awk program consists of a series of *rules*, each *rule* specifies a *pattern* to search for, and an action to perform on finding that
 pattern (enclosed in braces), as in the following:
@@ -34,3 +34,17 @@ pattern { action }
 pattern { action }
 ...
 ```
+
+Running an awk Program
+----------------------
+There are two main ways of running an awk program, either in-line, such as the following:
+```
+awk 'program' input-file1 input-file2 ...
+```
+
+Or by putting the awk program in a file and then running that:
+```
+awk -f program-file input-file1 input-file2 ...
+```
+
+Note that running awk without specifying any input files will cause awk to be applied to standard in.
