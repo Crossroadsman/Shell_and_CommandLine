@@ -4,7 +4,7 @@ awk
 awk is the name of a special purpose programming language for processing text files. It is also the name of the program that you use to 
 create instructions in this language.
 
-versions
+Versions
 --------
 Historically, awk is divided into 'old' awk and 'new' awk.
 
@@ -21,4 +21,16 @@ New awk will silently run the program, while old awk will produce an error messa
 ```awk
 error-> awk: syntax error near line 1
 error-> awk: bailing out near line 1
+```
+
+Usage
+-----
+
+An awk program consists of a series of *rules*, each *rule* specifies a *pattern* to search for, and an action to perform on finding that
+pattern (enclosed in braces), as in the following:
+
+```awk
+pattern { action }
+pattern { action }
+...
 ```
