@@ -1,7 +1,8 @@
 awk
 ===
 
-awk is a special purpose programming language for processing text files
+awk is the name of a special purpose programming language for processing text files. It is also the name of the program that you use to 
+create instructions in this language.
 
 versions
 --------
