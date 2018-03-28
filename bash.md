@@ -30,6 +30,13 @@ Misc Facts and Notes About Bash
     - `*`
     - `@`
 
+[Lists of Commands][link03]
+---------------------------
+
+- `command1 && command2` AND list: *command2* is executed iff *command1* returns an exit status 0
+- `command1 || command2` OR list: *command2* is executed iff *command1* returns an exist status not 0
+
+
 
 
 Footnotes
