@@ -15,9 +15,27 @@ Misc Facts and Notes About Bash
 6. Execute the command
 7. (Optionally) wait for the command to complete and collect its exit status
 
+[Escaping and Quoting][link02]
+------------------------------
+
+- `\` (non-quoted backslash): the Bash escape character. It preserves the literal value of the next character that follows (except 
+                              *newline*: a `\`*newline* pair represents line continuation)
+- `'` (single quotes): Enclosing characters in single quotes preserves the literal value of each character. Note that a single quote 
+                       character can never be represented in the string within the single quotes (even if escaped)
+- `"` (double quotes): Enclosing characters in double quotes preserves the literal value of most characters. Special characters:
+    - `$`
+    - {backtick}
+    - `\`<sup>[1](#footnote01)</sup>
+    - `!`<sup>[2](#footnote02)</sup>
+    - `*`
+    - `@`
 
 
 
-
+Footnotes
+----------
+<a name="footnote01">1</a>: Only retains special meaning if followed by `$`, <backtick>, `"`, `\`, or *newline*
+<a name="footnote02">2</a>: Only when history expansion is enabled and shell is not in Posix mode
 
 [link01]: https://www.gnu.org/software/bash/manual/bash.html#Shell-Operation
+[link02]: https://www.gnu.org/software/bash/manual/bash.html#Quoting
