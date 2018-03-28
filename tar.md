@@ -59,7 +59,15 @@ tar -xvf <archive_file>
 Both Mac and Linux should be able to detect the compression type.
 
 
-## A Note About Compression ##
+### A Note About Compression ###
 
 Typically bzip2 creates slightly smaller files than gzip (though not always, and occasionally can create larger files than gzip) but
 is significantly slower.
+
+
+### A Note About File Locations ###
+
+Sometimes the archive must be untarred and installed from a particular location (e.g., the user's home directory, or `/`, or `/usr/src`, 
+etc). If this is the case, there is likely to be an error during the untar process and more clues can usually be found in the package's
+documentation (e.g., `README` or `Install` files).
+
