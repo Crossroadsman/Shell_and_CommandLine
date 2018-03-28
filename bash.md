@@ -46,3 +46,4 @@ Footnotes
 
 [link01]: https://www.gnu.org/software/bash/manual/bash.html#Shell-Operation
 [link02]: https://www.gnu.org/software/bash/manual/bash.html#Quoting
+[link03]: https://www.gnu.org/software/bash/manual/bash.html#Lists
