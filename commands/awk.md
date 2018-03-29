@@ -1,8 +1,8 @@
 awk
 ===
 
-awk is the name of a special purpose programming language for processing text files. It is also the name of the program that you use to 
-create instructions in this language.
+[awk][link01] is the name of a special purpose programming language for processing text files. It is also the name of the program that 
+you use to create instructions in this language.
 
 Versions
 --------
@@ -48,3 +48,8 @@ awk -f program-file input-file1 input-file2 ...
 ```
 
 Note that running awk without specifying any input files will cause awk to be applied to standard in.
+
+
+
+
+[link01]: https://www.gnu.org/software/gawk/manual/gawk.html#Foreword3
