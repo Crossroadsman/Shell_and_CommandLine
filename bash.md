@@ -41,7 +41,7 @@ Misc Facts and Notes About [Bash][title01]
 
 Footnotes
 ----------
-<a name="footnote01">1</a>: Only retains special meaning if followed by `$`, <backtick>, `"`, `\`, or *newline*
+<a name="footnote01">1</a>: Only retains special meaning if followed by `$`, 'backtick', `"`, `\`, or *newline*  
 <a name="footnote02">2</a>: Only when history expansion is enabled and shell is not in Posix mode
 
 [title01]: https://www.gnu.org/software/bash/manual/bash.html#SEC_Contents
