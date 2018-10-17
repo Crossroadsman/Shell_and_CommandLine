@@ -24,7 +24,7 @@ Misc Facts and Notes About [Bash][title01]
                        character can never be represented in the string within the single quotes (even if escaped)
 - `"` (double quotes): Enclosing characters in double quotes preserves the literal value of most characters. Special characters:
     - `$`
-    - ` ` `
+    - \`
     - `\`<sup>[1](#footnote01)</sup>
     - `!`<sup>[2](#footnote02)</sup>
     - `*`
