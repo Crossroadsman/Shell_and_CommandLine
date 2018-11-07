@@ -36,6 +36,7 @@ Misc Facts and Notes About [Bash][title01]
 - `command1 && command2` AND list: *command2* is executed iff *command1* returns an exit status 0
 - `command1 || command2` OR<sup>[3](#footnote03)</sup> list: *command2* is executed iff *command1* returns an exit status not 0
 
+See also [this](https://askubuntu.com/a/817969) Ask Ubuntu answer which provides more interesting commentary on chaining commands.
 
 
 
