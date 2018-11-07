@@ -58,6 +58,13 @@ tar -xvf <archive_file>
 
 Both Mac and Linux should be able to detect the compression type.
 
+You can specify a destination directory as follows:
+
+```
+tar -xvf <archive_file> -C path/to/destination
+```
+(only tested with Gnu tar)
+
 
 ### A Note About Compression ###
 
