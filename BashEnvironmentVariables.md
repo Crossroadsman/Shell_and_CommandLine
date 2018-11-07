@@ -36,5 +36,73 @@ ${VAR}BAR
 ```
 which produces 'FOOBAR'.
 
+Kinds of Variables
+------------------
+
+- `shell`: limited to the current shell session (not passed to children)
+- `environment`: passed to children
+
+We can see environment variables using `printenv` and (environment variables + shell variables + shell functions) using `set`.
+
+Example usage of `printenv`:
+```console
+$ printenv
+LANG=en_us.UTF-8
+EDITOR=vim
+HOME=/home/user
+SHELL=/bin/bash
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin...etc
+...
+```
+
+Reading a single environment variable:
+```console
+$ printenv EDITOR
+vim
+```
+
+### Comparison of shell and environment variables ###
+
+```console
+$ TEST_VAR = 'Hello world!'  # This creates a shell variable
+$ printenv | grep -E "TEST"  # doesn't appear in printenv
+$ set | grep -E "TEST"       # does appear in set
+TEST_VAR='Hello World!'
+```
+
+```console
+$ echo $TEST_VAR
+Hello world!
+$ bash
+$ echo $TEST_VAR  # doesn't appear because wasn't passed to child shell
+```
+
+```console
+$ exit             # return to parent shell
+exit
+$ export TEST_VAR  # promote TEST_VAR to environment variable
+$ bash
+$ echo $TEST_VAR   # does appear because environment variable was passed to child
+Hello world!
+```
+
+We can demote an environment variable down to a shell variable:
+```console
+$ export -n TEST_VAR
+```
+
+Or unset it completely (applies to either environment or shell variables):
+```console
+$ unset TEST_VAR
+```
+
+
+Note we can also inline a variable and it will only exist for the associated command:
+```console
+$ STAGING_URL=staging.example.com:8000 python3 manage.py test functional_tests
+```
+This will run the command `python3 manage.py test functional_tests` and only this command will see the variable `STAGING_URL`
+
+
 
 [link01]: https://stackoverflow.com/questions/1416024/bash-path-and-path
