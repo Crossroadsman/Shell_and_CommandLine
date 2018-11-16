@@ -63,7 +63,7 @@ You can specify a destination directory as follows:
 ```
 tar -xvf <archive_file> -C path/to/destination
 ```
-(only tested with Gnu tar)
+(tested with both Mac and Linux)
 
 
 ### A Note About Compression ###
