@@ -1,2 +1,2 @@
 # TerminalTips
-Handy tips for Bash
+Handy tips for working with shells (especially Bash)
