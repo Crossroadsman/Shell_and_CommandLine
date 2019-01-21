@@ -71,11 +71,11 @@ Examples
 $ scp -r user2@my_host.com:/home/user2/other_files .
 ```
 
+
 See Also
 --------
-[scp Man Page]()
-
-
+[BSD scp Man Page](https://www.freebsd.org/cgi/man.cgi?query=scp&sektion=1)
+[Linux – How to Securely Copy Files Using SCP examples](https://haydenjames.io/linux-securely-copy-files-using-scp/)
 
 
 **Questions and Todos**
@@ -83,7 +83,6 @@ See Also
 - If no remote path is supplied, where (if anywhere) do the files end up?
 - Presumably could use `&` to do in background, is this true?
 - Need to verify example remote to local.
-
 
 
 Footnotes
