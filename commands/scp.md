@@ -2,8 +2,8 @@ scp (secure copy)
 =================
 
 
-Syntax
-------
+Syntax (BSD version, as available on MacOS and Ubuntu 18.10<sup>[1](#footnote01)</sup>)
+-----------------------------------------------------------
 ```console
 $ scp [-346BCpqrv] [-c cipher] [-F ssh_config] [-i identity_file] [-l limit]
       [-o ssh_option] [-P port] [-S program] source ... target
@@ -71,9 +71,21 @@ Examples
 $ scp -r user2@my_host.com:/home/user2/other_files .
 ```
 
+See Also
+--------
+[scp Man Page]()
+
+
+
+
 **Questions and Todos**
 -----------------------
 - If no remote path is supplied, where (if anywhere) do the files end up?
 - Presumably could use `&` to do in background, is this true?
 - Need to verify example remote to local.
 
+
+
+Footnotes
+---------
+1. <a name="footnote01"> </a>Version as per `lsb_release -a`
