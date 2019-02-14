@@ -14,6 +14,56 @@ Non-Login   | <ol><li>`/etc/bash.bashrc`</li><li>`~/.bashrc`</li></ol> | `$BASH_
 .bashrc to be loaded. Accordingly, an environment variable can be set in .bashrc and .bash_profile can execute .bashrc so the variable
 only needs to be set in one place.**
 
+### Definitions ###
+
+- "interactive": Not a shell script
+- "login": Involve passing credentials to initiate the session (e.g., `ssh` or `su - <username`)
+
+Thus:
+- a typical local terminal session (e.g., launching Terminal.app in macOS) is *interactive* *non-login*;
+- a remote `ssh` session is *interactive* *login*;
+- a shell script (including login/startup script?) is *non-interactive* *non-login*;
+- ??? is *non-interactive* *login*
+
+Startup Script Sequence
+-----------------------
+1. `/etc/profile` (applies to all users);
+2. `/etc/profile.d/*` (alphabetically, applies to all users);
+3. `~/.profile`
+
+Note, Bash, for interactive login (or non-interactive with the `--login` option) sessions loads in this order (see 
+`man bash`):
+
+1. `/etc/profile` (if it exists);
+2. The first, and only first, file found when searching in the following order:
+  a. `~/.bash_profile`;
+  b. `~/.bash_login`; then
+  c. `~/.profile`
+
+and for interactive non-login sessions (again from `man bash`) loads in this order:
+
+1. `/etc/bash.bashrc`; then
+2. `~/.bashrc`
+
+Note that there is also `/etc/environment` for setting global environment variables. This is *read* but not *sourced*
+(i.e., variable definitions are set but commands are not executed).
+
+Purposes
+--------
+(see <https://superuser.com/a/183956>)
+
+### `~/.profile` ###
+Traditionally, this was the place to define per-user environment variables for shells.
+
+### `~/.bash_profile` ###
+The Bash-specific equivalent to `~/.profile`. By default this is an all-or-nothing substitute for `.profile`. If Bash
+finds this file it will load this instead of `~/.profile`.
+
+### `~/.bashrc` ###
+For non-login-related items. Note, on some systems (Debian and most derivatives), `~/.profile` sources `~/.bashrc` so these
+items will be inherited by login shells as well. On such systems this is the default place to put things. Things like
+command aliases and functions.
+
 Formatting Environment Variables
 --------------------------------
 
