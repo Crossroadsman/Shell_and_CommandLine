@@ -1,6 +1,8 @@
-TerminalTips
-============
+Shell and the Command Line
+==========================
 Handy tips for working with shells (especially Bash).
+
+Note, this repo was formerly known as 'TerminalTips'. All links should be updated.
 
 See also [shell.md][sa_01].
 
@@ -13,7 +15,7 @@ See also [shell.md][sa_01].
 
 
 [sa_01]: https://github.com/Crossroadsman/ServerAdmin/blob/master/Shell.md
-[tt_01]: https://github.com/Crossroadsman/TerminalTips/blob/master/BashEnvironmentVariables.md
-[tt_02]: https://github.com/Crossroadsman/TerminalTips/blob/master/Mac_terminal_tips.md
-[tt_03]: https://github.com/Crossroadsman/TerminalTips/blob/master/scripting.md
-[tt_04]: https://github.com/Crossroadsman/TerminalTips/tree/master/commands
+[tt_01]: https://github.com/Crossroadsman/Shell_and_CommandLine/blob/master/BashEnvironmentVariables.md
+[tt_02]: https://github.com/Crossroadsman/Shell_and_CommandLine/blob/master/Mac_terminal_tips.md
+[tt_03]: https://github.com/Crossroadsman/Shell_and_CommandLine/blob/master/scripting.md
+[tt_04]: https://github.com/Crossroadsman/Shell_and_CommandLine/tree/master/commands
