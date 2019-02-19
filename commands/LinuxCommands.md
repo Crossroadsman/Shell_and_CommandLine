@@ -42,6 +42,8 @@ File reading
 - [`tail`](http://linuxcommand.org/lc3_man_pages/tail1.html)
 - `less`
 - `grep [options] pattern [file]`
+- `type <file>`: get the type of a particular file (e.g., executable, alias, etc)
+- `file <file>`: get info on the file type (e.g., "Bourne-Again shell script, ASCII text executable")
 
 File transfer
 -------------
