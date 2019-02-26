@@ -50,6 +50,26 @@ $ type cd
 cd is a shell builtin
 ```
 
+When used without any switches, `type` will show the first matching 
+command, but when using `-a` will show all matching commands:
+```console
+$ type printf
+printf is a shell builtin
+$ type -a printf
+printf is a shell builtin
+printf is /usr/bin/printf
+```
+
+Bash will prioritise builtins ahead of external commands, so in the 
+above example, `printf` will execute the builtin. To use the external
+command, use the full pathname: `/usr/bin/printf`.
+
+We can get help for builtins using `help` and for external commands
+using `man`. Since Bash prefers builtins to external commands, call
+`help` before calling `man` for any command that might be both a builtin
+and an external command.
+
+
 ### Alias ###
 An alias is a `word` mapped to a certain `string`. Whenever that word is
 used as a command name, it is replaced by the string before executing the
@@ -184,8 +204,32 @@ Note that `$(...)` is preferred over `` `...` `` for [various
 reasons](http://mywiki.wooledge.org/BashFAQ/082)
 
 
-[Escaping and Quoting][link03]
-------------------------------
+[Metacharacters, Escaping and Quoting][link03]
+--------------------------------------
+
+### Metacharacters ###
+
+- ` ` (space)
+- `\t` (tab)
+- `\n` (newline)
+- `|`
+- `&`
+- `;`
+- `(`, `)`
+- `<`, `>`
+
+Other characters are interpreted specially by Bash in some contexts, 
+including:
+- `{`, `}`
+- `[`, `]`
+- `$`
+- `*`
+
+but these are not considered metacharacters according to the manual page's
+definition.
+
+### Quoting ###
+
 - `"` (double quotes)  
   Items enclosed in double quotes will treat most special characters as 
   literals.
@@ -255,6 +299,9 @@ reasons](http://mywiki.wooledge.org/BashFAQ/082)
 
 Chaining (Listing) Commands[link04]
 -----------------------------------
+- `command1 ; command2` unconditional chain. *command2* will be executed regardless 
+  of the exit status of *command1*;
+- `command1 & command2` unconditional chain using subshells (async);
 - `command1 && command2` AND list: *command2* is executed iff *command1* 
   returns an exit status 0
 - `command1 || command2` OR<sup>[4](#footnote04)</sup> list: *command2* is 
@@ -262,6 +309,26 @@ Chaining (Listing) Commands[link04]
 
 See also [this](https://askubuntu.com/a/817969) Ask Ubuntu answer which provides 
 more interesting commentary on chaining commands.
+
+Put another way:
+
+In [Shell][link05], there are a couple of types of lists: 'AND-OR' lists and 
+'AND' lists.
+
+AND-OR lists are defined as sequences of pipelines separated by && or ||. When 
+executing a sequence of commands separated by &&, shell will execute each next 
+command if the previous command completed successfully (|| separated commands 
+execute if the previous command completed with an error code).
+
+AND lists are defined as sequences of AND-OR lists (which could be a single 
+command: a sequence of one) that are separated by ; or &. These lists execute 
+unconditionally (i.e., without regard to whether the previous command exited 
+successfully or not). The difference between ; and & is that the former will 
+execute sequentially in the same shell (i.e., synchronously) but the latter will 
+send each command to a subshell and so the commands can execute asynchronously.
+
+It is this property of sending the command to a subshell for asynchronous 
+execution that we exploit when we want to run a single command in the background.
 
 
 Footnotes
@@ -284,3 +351,4 @@ Footnotes
 [link02]: https://www.gnu.org/software/bash/manual/bash.html#Shell-Operation
 [link03]: https://www.gnu.org/software/bash/manual/bash.html#Quoting
 [link04]: https://www.gnu.org/software/bash/manual/bash.html#Lists
+[link05]: http://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18
