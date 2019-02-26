@@ -92,7 +92,8 @@ Kinds of Variables
 - `shell`: limited to the current shell session (not passed to children)
 - `environment`: passed to children
 
-We can see environment variables using `printenv` and (environment variables + shell variables + shell functions) using `set`.
+We can see environment variables using `printenv` and (environment variables + shell 
+variables + shell functions) using `set` or `declare`.
 
 Example usage of `printenv`:
 ```console
@@ -109,6 +110,62 @@ Reading a single environment variable:
 ```console
 $ printenv EDITOR
 vim
+```
+
+`set -x` prints commands and their arguments as they are executed. Turning
+this option on is a good first step for debugging a script, as it shows how
+the Bash has interpreted and expanded its input.
+
+Using declare without any args shows all variables and functions
+
+```console
+$ declare
+Apple_PubSub_Socket_Render=/private/tmp/com.apple.launchd.vdWh6uG7Q6/Render
+BASH=/usr/local/bin/bash
+BASHOPTS=checkwinsize:cmdhist:complete_fullquote:expand_aliases:extquote:force_fignore:globasciiranges:hostcomplete:interactive_comments:login_shell:progcomp:promptvars:sourcepath
+BASH_ALIASES=()
+BASH_ARGC=([0]="0")
+BASH_ARGV=()
+BASH_CMDS=()
+BASH_LINENO=()
+BASH_REMATCH=([0]="x")
+BASH_SOURCE=()
+...
+```
+
+Using `-p` prints the values of all variables in the current environment, 
+along with some short option flags that describe their properties.
+
+```console
+$ declare -p
+declare -x Apple_PubSub_Socket_Render="/private/tmp/com.apple.launchd.vdWh6uG7Q6/Render"
+declare -- BASH="/usr/local/bin/bash"
+declare -r BASHOPTS="checkwinsize:cmdhist:complete_fullquote:expand_aliases:extquote:force_fignore:globasciiranges:hostcomplete:interactive_comments:login_shell:progcomp:promptvars:sourcepath"
+declare -i BASHPID
+declare -A BASH_ALIASES=()
+declare -a BASH_ARGC=([0]="0")
+declare -a BASH_ARGV=()
+declare -- BASH_ARGV0
+declare -A BASH_CMDS=()
+declare -- BASH_COMMAND
+...
+```
+
+Using `-f` prints the values of all functions in the current environment:
+
+```console
+$ declare -f
+__nvm () 
+{ 
+    declare previous_word;
+    previous_word="${COMP_WORDS[COMP_CWORD - 1]}";
+    case "${previous_word}" in 
+        use | run | exec | ls | list | uninstall)
+            __nvm_installed_nodes
+        ;;
+        alias | unalias)
+            __nvm_alias
+...
 ```
 
 ### Comparison of shell and environment variables ###
