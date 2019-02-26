@@ -189,6 +189,16 @@ tempUser
 A current list of environment variables is available by running `printenv` or 
 `set`<sup>[1](#footnote01)</sup>.
 
+We can get the exit status of the previous command using `$?`:
+```console
+$ mkdir existent
+$ echo $?
+0
+$ rmdir nonexistent
+$ echo $?
+1
+```
+
 ### Command Substitution (Parenthesis/Backtick Expansion) ###
 We can use command substitution to use the output of a command as an expansion.
 ```console
@@ -330,6 +340,18 @@ send each command to a subshell and so the commands can execute asynchronously.
 It is this property of sending the command to a subshell for asynchronous 
 execution that we exploit when we want to run a single command in the background.
 
+Output Text to the Console
+--------------------------
+
+In scripts, prefer the use of `printf` to `echo`. `echo` has some design
+and portability issues that make it error-prone. `printf` is more 
+predictable.
+
+It works like `echo` except that the first arg is a format string:
+```console
+$ printf '%s\n' 'Hello!'
+Hello!
+```
 
 Footnotes
 ---------
