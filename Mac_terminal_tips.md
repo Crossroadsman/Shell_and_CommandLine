@@ -70,3 +70,22 @@ $ pbpaste >> some_list.txt
 ```
 
 Append the contents of the clipboard to the file `some_list.txt`.
+
+mdfind
+------
+
+Use Spotlight on the command line.
+
+Example:
+
+```console
+$ mdfind -onlyin ~/Pictures jpg
+```
+
+The optional `-onlyin <path>` flag restricts the search to the specified
+path.
+
+diskutil
+--------
+
+Like the GUI version but better.
