@@ -12,6 +12,7 @@ See also [shell.md][sa_01].
 - [scripting.md][tt_03]: Tips for scripting Bash;
 - [commands/][tt_04]: Notes on specific Unix and shell commands.
 
+To simply check the meaning of a bunch of command line arguments, use [Explain Shell](https://explainshell.com).
 
 
 [sa_01]: https://github.com/Crossroadsman/ServerAdmin/blob/master/Shell.md
