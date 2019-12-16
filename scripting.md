@@ -5,3 +5,19 @@ Bash Scripting
   it will do exactly the same thing.
 - Anything you can put into a script can also be run normally on the command 
   line and it will do exactly the same thing.
+
+
+Testing
+-------
+
+### bats ###
+
+- Install on macOS:
+  ```console
+  $ brew install bats
+  ```
+
+- Usage
+  ```console
+  $ bats <script_name>
+  ```
